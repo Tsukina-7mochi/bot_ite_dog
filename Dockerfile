@@ -35,5 +35,5 @@ COPY --from=prod-pre text/dest /text/dest
 # COPY credentials/ /credentials
 RUN pip install --upgrade pip --no-cache-dir && \
     pip install -r /src/requirements-prod.txt --no-cache-dir
-RUN echo "python /src/bot.py /text/dest/ngram.txt `cat /credentials/token.txt`" > /start_bot.sh
+RUN echo "python /src/bot.py /text/dest/ngram.txt \`cat /credentials/token.txt\`" > /start_bot.sh
 CMD ["sh", "/start_bot.sh"]
