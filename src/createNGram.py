@@ -10,7 +10,7 @@ def create_tagger():
     m = MeCab.Tagger(f"--node-format={node_format} --bos-format={bos_format} --eos-format={eos_format}")
     return m
 
-def splitByBracket(string):
+def split_by_bracket(string):
     i = 0
     result = []
 
@@ -50,10 +50,10 @@ def parse(tagger, text):
     sepCord = [f"{{{ord_str_uplus(t)}}}" for t in sep]
     parsed = [process(t) for t in split]
 
-    result = splitByBracket(parsed[0])
+    result = split_by_bracket(parsed[0])
     for i in range(1, len(parsed)):
         result.append(sepCord[i - 1])
-        result.extend(splitByBracket(parsed[i]))
+        result.extend(split_by_bracket(parsed[i]))
 
     return result
 
