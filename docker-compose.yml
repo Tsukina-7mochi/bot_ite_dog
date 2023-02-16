@@ -17,3 +17,9 @@ services:
         target: /credentials
     tty: true
     stdin_open: true
+  prod:
+    build:
+      context: .
+      target: prod
+    image: bot_ite_dog:prod
+    tty: true

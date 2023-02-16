@@ -17,6 +17,7 @@ def main():
     ngram_n = args.ngram_n
 
     print(f"input file: {input_file}")
+    print(f"token: {token}")
 
     intents = discord.Intents.default()
     intents.message_content = True
