@@ -28,7 +28,7 @@ def splitByBracket(string):
     return result
 
 def ord_str_uplus(string):
-    return "".join([f"U+{ord(char)}" for char in string])
+    return "".join([f"U+{ord(char):x}" for char in string])
 
 def parse(tagger, text):
     regex = r"\s+"
