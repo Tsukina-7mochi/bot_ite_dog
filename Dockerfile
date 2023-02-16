@@ -32,7 +32,7 @@ FROM python:3.8.16-slim AS prod
 WORKDIR /
 COPY src/ /src
 COPY --from=prod-pre text/dest /text/dest
-COPY credentials/ /credentials
+# COPY credentials/ /credentials
 RUN pip install --upgrade pip --no-cache-dir && \
     pip install -r /src/requirements-prod.txt --no-cache-dir
 RUN echo "python /src/bot.py /text/dest/ngram.txt `cat /credentials/token.txt`" > /start_bot.sh

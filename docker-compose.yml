@@ -22,4 +22,8 @@ services:
       context: .
       target: prod
     image: bot_ite_dog:prod
+    volumes:
+      - type: bind
+        source: ./credentials
+        target: /credentials
     tty: true
