@@ -6,11 +6,17 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("input_file")
     parser.add_argument("token")
     parser.add_argument("--sync-command", action="store_true")
+    parser.add_argument("--ngram-n", type=int, default=3)
     args = parser.parse_args()
 
     token = args.token
+    input_file = args.input_file
+    ngram_n = args.ngram_n
+
+    print(f"input file: {input_file}")
 
     intents = discord.Intents.default()
     intents.message_content = True
@@ -22,9 +28,11 @@ def main():
     @discord.app_commands.describe(first_word="first word")
     async def bot_dog_command(interaction, first_word: Optional[str]):
         if first_word == None:
-            generated = generate("", "../text/dest/ngram.txt", 3, "^", "$")
+            generated = generate("", input_file, ngram_n, "^", "$")
         else:
-            generated = generate(first_word, "../text/dest/ngram.txt", 3, "^", "$")
+            generated = generate(first_word, input_file, ngram_n, "^", "$")
+
+        print(f"{first_word} -> {generated}")
 
         await interaction.response.send_message(generated)
 
