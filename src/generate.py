@@ -1,0 +1,1 @@
+def generate(head_string, input_file)
