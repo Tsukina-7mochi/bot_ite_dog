@@ -1,6 +1,9 @@
 # text resources
 /text
 
+# credential infomations (e.g. bot tokens)
+/credentials
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
