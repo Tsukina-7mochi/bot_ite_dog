@@ -4,7 +4,7 @@
 
 A software that provides sentence generation using an N-gram model generated from sentences as a Discord bot
 
-## 使用方法
+## Usage
 
 - Prepare the source text
   - The text should be stored in a file separated by a line break (LF).
